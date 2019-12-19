@@ -166,7 +166,7 @@ Returns: a 1D or 2D list of lists from whitespace delimited text files
          are so converted
 """
     fnames = []
-    if type(namepatterns) in [ListType,TupleType]:
+    if type(namepatterns) in [list,tuple]:
         for item in namepatterns:
             fnames = fnames + glob.glob(item)
     else:
@@ -234,7 +234,7 @@ Returns: None
     if type(outlist) in [N.ArrayType]:
         aput(outlist,fname,writetype)
         return
-    if type(outlist[0]) not in [ListType,TupleType]:  # 1D list
+    if type(outlist[0]) not in [list,tuple]:  # 1D list
         outfile = open(fname,writetype)
         if not oneperline:
             outlist = pstat.list2string(outlist,delimit)
@@ -254,7 +254,7 @@ Returns: None
 
 
 def isstring(x):
-    if type(x)==StringType:
+    if type(x)==str:
         return 1
     else:
         return 0
@@ -473,7 +473,7 @@ Usage:   mghbget(imfile, numslices=-1, xsize=64, ysize=64,
     try:
         header = imfile[0:-6]+'hdr'
         vals = get(header,0)  # '0' means no missing-file warning msg
-        if type(vals[0]) == ListType:  # it's an extended header
+        if type(vals[0]) == list:  # it's an extended header
             xsize = int(vals[0][0])
             ysize = int(vals[0][1])
             numslices = int(vals[0][2])
@@ -600,7 +600,7 @@ Usage:   mget(fname,btype)
     try:
         header = fname[0:-6]+'hdr'
         vals = get(header,0)  # '0' means no missing-file warning msg
-        if type(vals[0]) == ListType:  # it's an extended header
+        if type(vals[0]) == list:  # it's an extended header
             xsize = int(vals[0][0])
             ysize = int(vals[0][1])
             numslices = int(vals[0][2])
@@ -733,7 +733,7 @@ to specified file.  File-overwrite is the default.
 Usage:   writedelimited (listoflists,delimiter,filename,writetype='w')
 Returns: None
 """
-    if type(listoflists[0]) not in [ListType,TupleType]:
+    if type(listoflists[0]) not in [list,tuple]:
         listoflists = [listoflists]
     outfile = open(file,writetype)
     rowstokill = []
@@ -768,7 +768,7 @@ to specified file.  File-overwrite is the default.
 Usage:   writecc (listoflists,file,writetype='w',extra=2)
 Returns: None
 """
-    if type(listoflists[0]) not in [ListType,TupleType]:
+    if type(listoflists[0]) not in [list,tuple]:
         listoflists = [listoflists]
     outfile = open(file,writetype)
     rowstokill = []
@@ -809,7 +809,7 @@ Returns: None
 """
     if type(listoflists) == N.ArrayType:
         listoflists = listoflists.tolist()
-    if type(listoflists[0]) not in [ListType,TupleType]:
+    if type(listoflists[0]) not in [list,tuple]:
         listoflists = [listoflists]
     outfile = open(file,writetype)
     rowstokill = []
@@ -954,7 +954,7 @@ Returns: data in file fname of type btype
         header = fname[:-3]+'hdr'
         vals = get(header,0)  # '0' means no missing-file warning msg
         print(vals)
-        if type(vals[0]) == ListType:  # it's an extended header
+        if type(vals[0]) == list:  # it's an extended header
             xsize = int(vals[0][0])
             ysize = int(vals[0][1])
             numslices = int(vals[0][2])

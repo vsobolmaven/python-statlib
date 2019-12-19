@@ -766,9 +766,9 @@ if 1:
 
    Usage:   F_value_wilks_lambda(ER,EF,dfnum,dfden,a,b)
    """
-        if type(ER) in [IntType, FloatType]:
+        if type(ER) in [int, float]:
             ER = N.array([[ER]])
-        if type(EF) in [IntType, FloatType]:
+        if type(EF) in [int, float]:
             EF = N.array([[EF]])
         lmbda = LA.determinant(EF) / LA.determinant(ER)
         if (a-1)**2 + (b-1)**2 == 5:

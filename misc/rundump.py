@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 from statlib import matfunc, pstat, stats
 import docdump
 
@@ -27,5 +29,5 @@ for i in classes:
 r.write(s)
 q.close()
     
-print functions
-print classes
+print(functions)
+print(classes)

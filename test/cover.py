@@ -6,6 +6,8 @@ in the manner described in
     * figleaf: http://darcs.idyll.org/~t/projects/figleaf/README.html
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 if __name__ == '__main__':
     import unittest
 
@@ -41,4 +43,4 @@ if __name__ == '__main__':
         annotate_html.report_as_html( data, 'cover-reports', [] )
     
     else:
-        print 'Invalid mode %s' % mode
+        print('Invalid mode %s' % mode)

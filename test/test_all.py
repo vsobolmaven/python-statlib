@@ -1,4 +1,6 @@
+from __future__ import absolute_import
 import sys, unittest
+from six.moves import range
 
 # attempt to use the most current library
 sys.path.insert(0, '..')
@@ -18,7 +20,7 @@ class TestStatlib(unittest.TestCase):
     def setUp(self):
         "Gets called on each test"
         # generate list data
-        self.L  = self.LF = range( 1, 21 )
+        self.L  = self.LF = list(range( 1, 21))
         self.LF[2] = 3.0
         self.LL = [ self.L ] * 5
 
@@ -26,7 +28,7 @@ class TestStatlib(unittest.TestCase):
         self.A  = self.AF = num_array( self.L )
         self.AA = num_array( self.LL )
         
-        self.M = range(4,24)
+        self.M = list(range(4,24))
         self.M[10] = 34 
         self.B = num_array(self.M)
         
